@@ -1,4 +1,3 @@
-<!-- begin #sidebar -->
 <div id="sidebar" class="sidebar">
     <!-- begin sidebar scrollbar -->
     <div data-scrollbar="true" data-height="100%">
@@ -6,7 +5,7 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="assets/img/user-13.jpg" alt="" /></a>
+                    <a href="javascript:;"><img src="/static/img/user-13.jpg" alt="" /></a>
                 </div>
                 <div class="info">
                     Sean Ngu
@@ -17,7 +16,7 @@
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
         <ul class="nav">
-            <li class="nav-header">Navigation</li>
+            <li class="nav-header">站点导航</li>
             <li class="has-sub active">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -263,4 +262,3 @@
     <!-- end sidebar scrollbar -->
 </div>
 <div class="sidebar-bg"></div>
-<!-- end #sidebar -->

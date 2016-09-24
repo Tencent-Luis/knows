@@ -1,10 +1,9 @@
 <?php
 namespace backend\assets;
-
 /**
  * Description of PluginsAsset
  * 后台所使用的资源包
- * @author Lu
+ * @author Luis
  * @time 2016-08-28
  */
 use yii\web\AssetBundle;
@@ -48,12 +47,28 @@ class PluginsAsset extends AssetBundle
         'static/plugins/jquery/jquery-migrate-1.1.0.min.js',
         'static/plugins/jquery-ui/ui/minified/jquery-ui.min.js',
         'static/plugins/bootstrap/js/bootstrap.min.js',
+        /*=======[if lt IE 9]=======*/
 		'static/crossbrowserjs/html5shiv.js',
 		'static/crossbrowserjs/respond.min.js',
 		'static/crossbrowserjs/excanvas.min.js',
+        /*=====![endif]=======*/
         'static/plugins/slimscroll/jquery.slimscroll.min.js',
         'static/plugins/jquery-cookie/jquery.cookie.js',
         /*================== END BASE JS ==================*/
+        
+        /*================== BEGIN PAGE LEVEL JS ==================*/
+        'static/plugins/gritter/js/jquery.gritter.js',
+        'static/plugins/flot/jquery.flot.min.js',
+        'static/plugins/flot/jquery.flot.time.min.js',
+        'static/plugins/flot/jquery.flot.resize.min.js',
+        'static/plugins/flot/jquery.flot.pie.min.js',
+        'static/plugins/sparkline/jquery.sparkline.js',
+        'static/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js',
+        'static/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js',
+        'static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+        'static/js/dashboard.min.js',
+        'static/js/apps.min.js'
+        /*================== END PAGE LEVEL JS ==================*/
     ];
     
     /**
