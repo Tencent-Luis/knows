@@ -8,5 +8,21 @@ namespace backend\controllers;
  */
 class ContentController extends BaseController
 {
-    //put your code here
+    /**
+     * 内容列表页
+     * @return type
+     */
+    public function actionIndex()
+    {
+        return $this->render('index');
+    }
+    
+    /**
+     * 内容添加
+     * @return type
+     */
+    public function actionAdd()
+    {
+        return $this->render('add');
+    }
 }

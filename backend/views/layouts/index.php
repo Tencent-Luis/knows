@@ -6,6 +6,9 @@
 
         <!-- Main Content -->
         <div id="content" class="content">
+            <!-- 主页导航start -->
+            <?= $this->render('nav'); ?>
+            <!-- 主页导航end -->
             <?= $content ?>
         </div>
     </div>

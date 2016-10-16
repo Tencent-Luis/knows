@@ -30,8 +30,7 @@ class PluginsAsset extends AssetBundle
         /*================== END BASE CSS STYLE ==================*/
 	    /*================== BEGIN PAGE LEVEL STYLE ==================*/
         'static/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css',
-        'static/plugins/bootstrap-datepicker/css/datepicker.css',
-        'static/plugins/bootstrap-datepicker/css/datepicker3.css',
+        'static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
         'static/plugins/gritter/css/jquery.gritter.css',
         /*================== END PAGE LEVEL STYLE ==================*/
     ];
@@ -58,14 +57,10 @@ class PluginsAsset extends AssetBundle
         
         /*================== BEGIN PAGE LEVEL JS ==================*/
         'static/plugins/gritter/js/jquery.gritter.js',
-        'static/plugins/flot/jquery.flot.min.js',
-        'static/plugins/flot/jquery.flot.time.min.js',
-        'static/plugins/flot/jquery.flot.resize.min.js',
-        'static/plugins/flot/jquery.flot.pie.min.js',
         'static/plugins/sparkline/jquery.sparkline.js',
         'static/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js',
         'static/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js',
-        'static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+        'static/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js',
         'static/js/dashboard.min.js',
         'static/js/apps.min.js'
         /*================== END PAGE LEVEL JS ==================*/
@@ -78,4 +73,33 @@ class PluginsAsset extends AssetBundle
     public $jsOptions = [
         'position' => View::POS_END,
     ];
+    
+    /**
+     * 添加依赖
+     * @var type 
+     */
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
+    
+    /**
+     * 定义按需加载JS方法,注意加载顺序在最后
+     * @param obj $view 视图对象
+     * @param string $jsFile js文件路径
+     */
+    public static function addScript($view, $jsFile)
+    {
+        $view->registerJsFile($jsFile, [PluginsAsset::className(), 'depends' => 'backend\assets\PluginsAsset']);
+    }
+    
+    /**
+     * 定义按需加载css方法,注意加载顺序在最后
+     * @param obj $view 视图对象
+     * @param string $cssFile css文件路径
+     */
+    public static function addCss($view, $cssFile)
+    {
+        $view->registerCssFile($cssFile, [PluginsAsset::className(), 'depends' => 'backend\assets\PluginsAsset']);
+    }
 }

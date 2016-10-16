@@ -1,6 +1,5 @@
 <?php
 namespace backend\controllers;
-
 /**
  * Description of HomeController
  * 首页控制器类
