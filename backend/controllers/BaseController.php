@@ -1,14 +1,13 @@
 <?php
 namespace backend\controllers;
-
-use yii\web\Controller;
-
 /**
  * Description of BaseController
  * 控制器父类
  * @author Lu
  * @time 2016-08-21
  */
+use yii\web\Controller;
+
 class BaseController extends Controller
 {
     /**

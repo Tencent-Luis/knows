@@ -14,13 +14,20 @@ $(function(){
         startDate: new Date()
     });
     //ajax提交表单
-    $.ajax({
-        type: 'POST',
-        url: $('#sites_form').attr('action'),
-        data: $('#sites_form').serialize(),
-        dataType: 'json',
-        success: function(response){
-            console.log(response);
+    $('#savebtn').bind('click', function(){
+        var formInstance = $('#sites_form').parsley();
+        var bool = formInstance.validate();
+        if(bool)
+        {
+            $.ajax({
+                type: 'POST',
+                url: '/sites/add',
+                data: $('#sites_form').serialize(),
+                dataType: 'json',
+                success: function(response){
+                    console.log('aa');
+                }
+            });
         }
     });
 });

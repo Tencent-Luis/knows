@@ -7,20 +7,11 @@ namespace backend\controllers;
  * @time 2016-10-15
  */
 use Yii;
+use backend\exception\CustomException;
+use common\models\BasicSites;
 
 class SitesController extends BaseController
 {
-    /**
-     * 站点状态
-     * @var array 
-     */
-    public $status = [
-        '1' => '上线',
-        '2' => '内测',
-        '3' => '开发',
-        '4' => '关闭',
-    ];
-
     public function actionIndex()
     {
         return $this->render('index');
@@ -31,11 +22,17 @@ class SitesController extends BaseController
         if(Yii::$app->getRequest()->isAjax)
         {
             $post = Yii::$app->getRequest()->post();
-            var_dump($post);exit;
+            
+            if(!isset($post['site_name']) || empty($post['site_name']))
+            {
+                throw new CustomException(200, '请输入站点名称!', 406);
+            }
         }
         
+        //站点状态
+        $siteStatus = Yii::$app->params['site_status'];
         return $this->render('add', [
-            'siteStatus' => $this->status,
+            'siteStatus' => $siteStatus,
         ]);
     }
 }
